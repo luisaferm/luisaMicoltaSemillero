@@ -32,9 +32,12 @@ public class AppTest {
 	@Test
 	public void segundaPU() {
 		String cadena = "Luisa Micolta";		
-		String cadenaInvertida = invertirCadena(cadena);		
+		String cadenaInvertida = invertirCadena(cadena);	
+		String cadenaEsperada ="atlociM asiuL";
        
-		Assert.assertEquals(cadenaInvertida, "atlociM asiuL");
+		Assert.assertEquals(cadenaInvertida, cadenaEsperada);
+		Assert.assertNotEquals(cadena, cadenaInvertida);
+		Assert.assertTrue(cadenaEsperada.equals(cadenaInvertida) );
 		
 	}
 
