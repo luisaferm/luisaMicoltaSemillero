@@ -18,7 +18,7 @@ public class AppTest {
 		Long sumando2 = 50L;
 		Long resultado = sumando1 + sumando2;
 		Assert.assertEquals(resultado, resultadoEsperado);
-		resultadoEsperado=200L;
+		resultadoEsperado = 200L;
 		Assert.assertNotEquals(resultado, resultadoEsperado);
 
 	}
@@ -30,45 +30,43 @@ public class AppTest {
 		}
 		return cadenaInvertida;
 	}
-	
+
 	@Test
 	public void segundaPU() {
-		String cadena = "Luisa Micolta";		
-		String cadenaInvertida = invertirCadena(cadena);	
-		String cadenaEsperada ="atlociM asiuL";
-       
+		String cadena = "Luisa Micolta";
+		String cadenaInvertida = invertirCadena(cadena);
+		String cadenaEsperada = "atlociM asiuL";
+
 		Assert.assertEquals(cadenaInvertida, cadenaEsperada);
 		Assert.assertNotEquals(cadena, cadenaInvertida);
-		Assert.assertTrue(cadenaEsperada.equals(cadenaInvertida) );
-		
+		Assert.assertTrue(cadenaEsperada.equals(cadenaInvertida));
+
 	}
 
 	@Test
 	public void terceraPU() {
-		
-	 EstadoEnum estadoEnumActivo = EstadoEnum.ACTIVO ;
-	 EstadoEnum estadoEnumInactivo = EstadoEnum.INACTIVO ;
-	
-	 
-	 
-	
-	 //Assert que valida que el valor de estadoEnumActivo es ACTIVO
-	 
-	 Assert.assertNotSame(estadoEnumActivo, "ACTIVO","El estado es ACTIVO");
-	 System.out.println("\nNombre de la constante = "+estadoEnumActivo);
-	 
-	 //Assert valida la posicion de la variable  estadoEnumInactivo dentro del Array la cual es 1.
-	
-	 Assert.assertEquals( estadoEnumInactivo.ordinal(),1 );
-	System.out.println("\nLa posicion del Enum ACTIVO ES = "+estadoEnumActivo.ordinal() );
-	System.out.println("La posicion del Enum INACTIVO ES = "+estadoEnumInactivo.ordinal()+"\n" );
-	
-	//Recorre el arreglo estadoEnum y muestra sus valores
-	
-	 for (EstadoEnum estadoEnum : EstadoEnum.values()) { 
-		 
-		    System.out.println("Valor arreglo ENUM ="+estadoEnum); 
+
+		EstadoEnum estadoEnumActivo = EstadoEnum.ACTIVO;
+		EstadoEnum estadoEnumInactivo = EstadoEnum.INACTIVO;
+
+		// Assert que valida que el valor de estadoEnumActivo es ACTIVO
+
+		Assert.assertNotSame(estadoEnumActivo, "ACTIVO", "El estado es ACTIVO");
+		System.out.println("\nNombre de la constante = " + estadoEnumActivo);
+
+		// Assert valida la posicion de la variable estadoEnumInactivo dentro
+		// del Array la cual es 1.
+
+		Assert.assertEquals(estadoEnumInactivo.ordinal(), 1);
+		System.out.println("\nLa posicion del Enum ACTIVO ES = " + estadoEnumActivo.ordinal());
+		System.out.println("La posicion del Enum INACTIVO ES = " + estadoEnumInactivo.ordinal() + "\n");
+
+		// Recorre el arreglo estadoEnum y muestra sus valores
+
+		for (EstadoEnum estadoEnum : EstadoEnum.values()) {
+
+			System.out.println("Valor arreglo ENUM =" + estadoEnum);
 		}
-	
+
 	}
 }
