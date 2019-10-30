@@ -3,6 +3,8 @@ package com.hbt.semillero.servicios;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.hbt.semillero.entidades.EstadoEnum;
+
 public class AppTest {
 
 	public void shouldAnswerWithTrue() {
@@ -41,4 +43,32 @@ public class AppTest {
 		
 	}
 
+	@Test
+	public void terceraPU() {
+		
+	 EstadoEnum estadoEnumActivo = EstadoEnum.ACTIVO ;
+	 EstadoEnum estadoEnumInactivo = EstadoEnum.INACTIVO ;
+	
+	 
+	 
+	
+	 //Assert que valida que el valor de estadoEnumActivo es ACTIVO
+	 
+	 Assert.assertNotSame(estadoEnumActivo, "ACTIVO","El estado es ACTIVO");
+	 System.out.println("\nNombre de la constante = "+estadoEnumActivo);
+	 
+	 //Assert valida la posicion de la variable  estadoEnumInactivo dentro del Array la cual es 1.
+	
+	 Assert.assertEquals( estadoEnumInactivo.ordinal(),1 );
+	System.out.println("\nLa posicion del Enum ACTIVO ES = "+estadoEnumActivo.ordinal() );
+	System.out.println("La posicion del Enum INACTIVO ES = "+estadoEnumInactivo.ordinal()+"\n" );
+	
+	//Recorre el arreglo estadoEnum y muestra sus valores
+	
+	 for (EstadoEnum estadoEnum : EstadoEnum.values()) { 
+		 
+		    System.out.println("Valor arreglo ENUM ="+estadoEnum); 
+		}
+	
+	}
 }
