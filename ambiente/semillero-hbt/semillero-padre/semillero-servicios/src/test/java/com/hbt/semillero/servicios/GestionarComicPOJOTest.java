@@ -86,7 +86,7 @@ public class GestionarComicPOJOTest {
 	 * @author Family
 	 *
 	 */
-	@Test(enabled = false)	
+	@Test
 	public void modificarComicDTOTest(){
 		
 		GestionarComicPOJO gestionarComicPOJO= new GestionarComicPOJO();	
