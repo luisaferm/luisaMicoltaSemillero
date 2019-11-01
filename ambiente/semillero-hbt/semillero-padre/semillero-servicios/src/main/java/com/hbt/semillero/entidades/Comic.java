@@ -50,7 +50,7 @@ public class Comic implements Serializable {
 	private String editorial;
 
 	@Column(name = "SCTEMATICA")
-	private TematicaEnum tematicaEnum;
+	private String tematica;
 
 	@Column(name = "SCCOLECCION")
 	private String coleccion;
@@ -71,7 +71,7 @@ public class Comic implements Serializable {
 	private LocalDate fechaVenta;
 
 	@Column(name = "SCESTADO")
-	private EstadoEnum estadoEnum;
+	private String estado;
 
 	@Column(name = "SCCANTIDAD")
 	private Long cantidad;
@@ -139,21 +139,6 @@ public class Comic implements Serializable {
 
 	
 
-	/**
-	 * Metodo encargado de retornar el valor del atributo tematicaEnum
-	 * @return El tematicaEnum asociado a la clase
-	 */
-	public TematicaEnum getTematicaEnum() {
-		return tematicaEnum;
-	}
-
-	/**
-	 * Metodo encargado de modificar el valor del atributo tematicaEnum
-	 * @param tematicaEnum El nuevo tematicaEnum a modificar.
-	 */
-	public void setTematicaEnum(TematicaEnum tematicaEnum) {
-		this.tematicaEnum = tematicaEnum;
-	}
 
 	/**
 	 * Metodo encargado de retornar el valor del atributo coleccion
@@ -254,32 +239,8 @@ public class Comic implements Serializable {
 		return fechaVenta;
 	}
 
-	/**
-	 * Metodo encargado de modificar el valor del atributo fechaVenta
-	 * 
-	 * @param fechaVenta El nuevo fechaVenta a modificar.
-	 */
-	public void setFechaVenta(LocalDate fechaVenta) {
-		this.fechaVenta = fechaVenta;
-	}
-
-
-
-	/**
-	 * Metodo encargado de retornar el valor del atributo estadoEnum
-	 * @return El estadoEnum asociado a la clase
-	 */
-	public EstadoEnum getEstadoEnum() {
-		return estadoEnum;
-	}
-
-	/**
-	 * Metodo encargado de modificar el valor del atributo estadoEnum
-	 * @param estadoEnum El nuevo estadoEnum a modificar.
-	 */
-	public void setEstadoEnum(EstadoEnum estadoEnum) {
-		this.estadoEnum = estadoEnum;
-	}
+	
+	
 
 	/**
 	 * Metodo encargado de retornar el valor del atributo cantidad
@@ -288,6 +249,46 @@ public class Comic implements Serializable {
 	 */
 	public Long getCantidad() {
 		return cantidad;
+	}
+
+	/**
+	 * Metodo encargado de retornar el valor del atributo tematica
+	 * @return El tematica asociado a la clase
+	 */
+	public String getTematica() {
+		return tematica;
+	}
+
+	/**
+	 * Metodo encargado de modificar el valor del atributo tematica
+	 * @param tematica El nuevo tematica a modificar.
+	 */
+	public void setTematica(String tematica) {
+		this.tematica = tematica;
+	}
+
+	/**
+	 * Metodo encargado de retornar el valor del atributo estado
+	 * @return El estado asociado a la clase
+	 */
+	public String getEstado() {
+		return estado;
+	}
+
+	/**
+	 * Metodo encargado de modificar el valor del atributo estado
+	 * @param estado El nuevo estado a modificar.
+	 */
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+	/**
+	 * Metodo encargado de modificar el valor del atributo fechaVenta
+	 * @param fechaVenta El nuevo fechaVenta a modificar.
+	 */
+	public void setFechaVenta(LocalDate fechaVenta) {
+		this.fechaVenta = fechaVenta;
 	}
 
 	/**
@@ -312,13 +313,13 @@ public class Comic implements Serializable {
 		result = prime * result + ((coleccion == null) ? 0 : coleccion.hashCode());
 		result = prime * result + ((color == null) ? 0 : color.hashCode());
 		result = prime * result + ((editorial == null) ? 0 : editorial.hashCode());
-		result = prime * result + ((estadoEnum == null) ? 0 : estadoEnum.hashCode());
+		result = prime * result + ((estado == null) ? 0 : estado.hashCode());
 		result = prime * result + ((fechaVenta == null) ? 0 : fechaVenta.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
 		result = prime * result + ((numeroPaginas == null) ? 0 : numeroPaginas.hashCode());
 		result = prime * result + ((precio == null) ? 0 : precio.hashCode());
-		result = prime * result + ((tematicaEnum == null) ? 0 : tematicaEnum.hashCode());
+		result = prime * result + ((tematica == null) ? 0 : tematica.hashCode());
 		return result;
 	}
 
@@ -372,11 +373,11 @@ public class Comic implements Serializable {
 		} else if (!editorial.equals(other.editorial)) {
 			return false;
 		}
-		if (estadoEnum == null) {
-			if (other.estadoEnum != null) {
+		if (estado == null) {
+			if (other.estado != null) {
 				return false;
 			}
-		} else if (!estadoEnum.equals(other.estadoEnum)) {
+		} else if (!estado.equals(other.estado)) {
 			return false;
 		}
 		if (fechaVenta == null) {
@@ -414,11 +415,11 @@ public class Comic implements Serializable {
 		} else if (!precio.equals(other.precio)) {
 			return false;
 		}
-		if (tematicaEnum == null) {
-			if (other.tematicaEnum != null) {
+		if (tematica == null) {
+			if (other.tematica != null) {
 				return false;
 			}
-		} else if (!tematicaEnum.equals(other.tematicaEnum)) {
+		} else if (!tematica.equals(other.tematica)) {
 			return false;
 		}
 		return true;
@@ -437,7 +438,7 @@ public class Comic implements Serializable {
 		builder.append(", editorial=");
 		builder.append(editorial);
 		builder.append(", tematicaEnum=");
-		builder.append(tematicaEnum);
+		builder.append(tematica);
 		builder.append(", coleccion=");
 		builder.append(coleccion);
 		builder.append(", numeroPaginas=");
@@ -451,7 +452,7 @@ public class Comic implements Serializable {
 		builder.append(", fechaVenta=");
 		builder.append(fechaVenta);
 		builder.append(", estadoEnum=");
-		builder.append(estadoEnum);
+		builder.append(estado);
 		builder.append(", cantidad=");
 		builder.append(cantidad);
 		builder.append("]");

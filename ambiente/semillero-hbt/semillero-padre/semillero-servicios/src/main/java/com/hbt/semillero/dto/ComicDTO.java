@@ -273,6 +273,18 @@ public class ComicDTO implements Serializable{
 	public void setCantidad(Long cantidad) {
 		this.cantidad = cantidad;
 	}
+
+
+	/** 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "ComicDTO [id=" + id + ", nombre=" + nombre + ", editorial=" + editorial + ", tematicaEnum="
+				+ tematicaEnum + ", coleccion=" + coleccion + ", numeroPaginas=" + numeroPaginas + ", precio=" + precio
+				+ ", autores=" + autores + ", color=" + color + ", fechaVenta=" + fechaVenta + ", estadoEnum="
+				+ estadoEnum + ", cantidad=" + cantidad + "]";
+	}
 	
 	
 	

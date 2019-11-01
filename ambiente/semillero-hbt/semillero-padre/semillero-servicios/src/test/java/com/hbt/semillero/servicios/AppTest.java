@@ -1,9 +1,20 @@
 package com.hbt.semillero.servicios;
 
+import java.math.BigDecimal;
+
+
+import java.math.BigInteger;
+import java.text.Bidi;
+import java.time.LocalDate;
+
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
+import com.hbt.semillero.dto.ComicDTO;
 import com.hbt.semillero.entidades.EstadoEnum;
+import com.hbt.semillero.entidades.TematicaEnum;
+import com.hbt.semillero.pojo.GestionarComicPOJO;
 
 public class AppTest {
 
@@ -11,7 +22,7 @@ public class AppTest {
 
 	}
 
-	@Test
+	@Test(enabled = false)
 	public void primeraPU() {
 		Long resultadoEsperado = 150L;
 		Long sumando1 = 100L;
@@ -31,7 +42,7 @@ public class AppTest {
 		return cadenaInvertida;
 	}
 
-	@Test
+	@Test(enabled = false)
 	public void segundaPU() {
 		String cadena = "Luisa Micolta";
 		String cadenaInvertida = invertirCadena(cadena);
@@ -43,7 +54,7 @@ public class AppTest {
 
 	}
 
-	@Test
+	@Test(enabled = false)
 	public void terceraPU() {
 
 		EstadoEnum estadoEnumActivo = EstadoEnum.ACTIVO;
@@ -69,11 +80,13 @@ public class AppTest {
 		/**
 		 * Recorre el arreglo estadoEnum y muestra sus valores
 		 */
-		
+
 		for (EstadoEnum estadoEnum : EstadoEnum.values()) {
 
 			System.out.println("Valor arreglo ENUM =" + estadoEnum);
 		}
-
 	}
+
+
+
 }
