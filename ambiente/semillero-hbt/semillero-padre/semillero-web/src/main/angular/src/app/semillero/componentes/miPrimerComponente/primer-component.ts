@@ -16,6 +16,8 @@ export class PrimerComponent {
   //public separador : String = '-';
   //public ciudad : String = 'Tunja'
   public listaComics = [];
+  public mostrarMensaje : boolean;
+ 
 
 
   ngOnInit(): void {
@@ -73,6 +75,7 @@ export class PrimerComponent {
     comic3.estado = "Activo";
     this.listaComics.push(comic3);
 
+
     // OBJETO 4
     let comic4 = new ComicEjercicio();
 
@@ -113,25 +116,33 @@ export class PrimerComponent {
 
   }
 
-  public eliminarComic() : void{
+  public eliminarComic() : String {
     let lista = this.listaComics;
     //let comic = new ComicEjercicio();
-    let mostarMensaje : string ;
+    let mensaje : string ;
+    
 
     if(lista.length >= 3 ){
       
-      mostarMensaje ="Se ha eliminado el Comic: "+ lista[2].nombre;
+      mensaje ="Se ha eliminado el Comic: "+ lista[2].nombre;
       lista.splice(2,1);
-      console.log(JSON.stringify({ mostarMensaje }));
-     // return mostarMensaje;
+      console.log("COMIC ELIMINADO");
+      console.log(JSON.stringify({mensaje}));
+      
+      this.mostrarMensaje=true;
+      
+      return mensaje;
     }
     else{
-      mostarMensaje="Ya no hay Comics en la Posicion 3 para eliminar"
-      console.log(JSON.stringify({ mostarMensaje }));
-      //return mostarMensaje;
+     // mensaje="Ya no hay Comics en la Posicion 3 para eliminar"
+     // console.log(JSON.stringify({ mensaje }));
+     this.mostrarMensaje=false;
+      return null;
     }
-    
     
   }
 
+  
+
+  
 }

@@ -2,5 +2,8 @@
 <h2>Ejercicio 3 </h2>
 <pre>{{ listaComics | json}}</pre>
 <h2>Ejercicio 4 </h2>
-<input type="button" value="Eliminar Posicion 3 de la lista" (click)="eliminarComic()">
-<div >{{eliminarComic()}}</div>
+
+
+<input type="button" value="Eliminar" (click)="eliminarComic()" />
+
+<div ngif="mostrarMensaje">Se elimino correctamente el comic de la posicion 3</div>
