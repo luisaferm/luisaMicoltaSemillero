@@ -93,11 +93,11 @@ export class PrimerComponent {
 
     comic5.id = 5;
     comic5.nombre = "FLASH";
-    comic5.editorial = "Joshua Williamson, Scott Kolins ";
+    comic5.editorial = "ECC Ediciones";
     comic5.tematica = "Accion";
-    comic5.numeroPaginas = 456;
+    comic5.numeroPaginas = 234;
     comic5.precio = 12, 215.79;
-    comic5.autores = "John Byrne";
+    comic5.autores = "Joshua Williamson, Scott Kolins ";
     comic5.aColor = true;
     comic5.fechaVenta = new Date(29 / 10 / 2019);
     comic5.estado = "Activo";
@@ -112,4 +112,26 @@ export class PrimerComponent {
     }
 
   }
+
+  public eliminarComic() : void{
+    let lista = this.listaComics;
+    //let comic = new ComicEjercicio();
+    let mostarMensaje : string ;
+
+    if(lista.length >= 3 ){
+      
+      mostarMensaje ="Se ha eliminado el Comic: "+ lista[2].nombre;
+      lista.splice(2,1);
+      console.log(JSON.stringify({ mostarMensaje }));
+     // return mostarMensaje;
+    }
+    else{
+      mostarMensaje="Ya no hay Comics en la Posicion 3 para eliminar"
+      console.log(JSON.stringify({ mostarMensaje }));
+      //return mostarMensaje;
+    }
+    
+    
+  }
+
 }
