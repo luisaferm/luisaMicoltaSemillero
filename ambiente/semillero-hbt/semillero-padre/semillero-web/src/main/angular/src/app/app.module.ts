@@ -15,6 +15,7 @@ import { PrimerComponent } from './semillero/componentes/miPrimerComponente/prim
 // DTOs
 export { ComicDTO } from './semillero/dto/comic.dto';
 export { ResultadoDTO } from './semillero/dto/resultado.dto';
+export { ComicEjercicio } from './semillero/clases_ejercicios/comic-ejercicio';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ export { ResultadoDTO } from './semillero/dto/resultado.dto';
     BienvenidaComponent,
     GestionarComicComponent,
     CrearPersonaComponent,
-    PrimerComponent
+    PrimerComponent,
+    
   ],
   imports: [
     BrowserModule,
