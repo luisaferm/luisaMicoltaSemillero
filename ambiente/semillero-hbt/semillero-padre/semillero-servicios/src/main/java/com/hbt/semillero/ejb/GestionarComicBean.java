@@ -43,7 +43,7 @@ public class GestionarComicBean implements IGestionarComicLocal {
 
 	/**
 	 * 
-	 * Metodo encargado de 
+	 * Metodo encargado de gestionar el metodo de modificar en la capa de presentacion
 	 * <b>Caso de Uso</b>
 	 * @author Family
 	 * 
@@ -59,7 +59,7 @@ public class GestionarComicBean implements IGestionarComicLocal {
 	}
 	/**
 	 * 
-	 * Metodo encargado de 
+	 * Metodo encargado de consultar todos los Comics
 	 * <b>Caso de Uso</b>
 	 * @author Family
 	 * 
@@ -141,7 +141,7 @@ public class GestionarComicBean implements IGestionarComicLocal {
 
 	/**
 	 * 
-	 * Metodo encargado de  transpasar informacin de un lado a otro, no incluye manipulacion de datos por ende no necesita anotacion de transaccion 
+	 * Metodo encargado de   transpasar informacin de un lado a otro, no incluye manipulacion de datos por ende no necesita anotacion de transaccion 
 	 * <b>Caso de Uso</b>
 	 * @author Family
 	 * 
@@ -171,7 +171,7 @@ public class GestionarComicBean implements IGestionarComicLocal {
 
 	/**
 	 *
-	 * Metodo encargado de 
+	 * Metodo encargado de Convertir Objeto Comic a objeto ComicDTO
 	 * <b>Caso de Uso</b>
 	 * @author Family
 	 * 
