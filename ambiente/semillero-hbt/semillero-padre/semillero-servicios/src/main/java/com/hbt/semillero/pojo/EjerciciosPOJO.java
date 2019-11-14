@@ -113,7 +113,14 @@ public class EjerciciosPOJO {
 		return null;
 
 	}
-
+/**
+ * 
+ * Metodo encargado de validar el ejercicio 9
+ * <b>Caso de Uso</b>
+ * @author Family
+ * 
+ * @throws Exception
+ */
 	public void ejercicio9() throws Exception{
 		throw new Exception();
 
