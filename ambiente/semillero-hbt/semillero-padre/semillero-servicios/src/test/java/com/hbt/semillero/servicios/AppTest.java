@@ -87,6 +87,23 @@ public class AppTest {
 		}
 	}
 
+	@Test(enabled = false)
+	public void metodoStringTest(){
+		
+		String s1 ="street";
+		String s2 = new String("street");
+		if(s1 == s2 ){ // no ingresa a if por la r3eferencia de memoria se utiliza el equals para que valide los valores
+			System.out.println("Si entro a condicion");
+		}
+		else{
+			System.out.println("No entro");
+		}
+		
+		Assert.assertEquals(s1, s2);
+		
+	}
+	
+	
 
 
 }

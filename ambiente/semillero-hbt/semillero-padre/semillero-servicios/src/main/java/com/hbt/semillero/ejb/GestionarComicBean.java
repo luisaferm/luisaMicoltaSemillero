@@ -5,6 +5,7 @@ package com.hbt.semillero.ejb;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
@@ -99,13 +100,35 @@ public class GestionarComicBean implements IGestionarComicLocal {
 
 	}
 
+
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	//TODO CUAL ES EL RESULTADO DE LLAMAR A ModificarComic
+	public void modificarComic2(Long id, String nombre) {
+
+		Comic comicModificar ;
+		//		if(comicNuevo==null){
+		//			// Manejar la entidad, si esta manejada el entity manager puede manejarla
+		comicModificar = em.find(Comic.class, id); //internanmente hace un SELECT *FROM COMIC
+		//
+		//		}else{
+		//			comicModificar= convertirComicDTOToComic(comicNuevo);
+		//		}
+		// TODO queda pendiente validar si el comic a modificar llego con datos
+		if(comicModificar!=null){
+
+			comicModificar.setNombre(nombre);
+			em.merge(comicModificar);
+			return;
+		}
+
+	}
 	/** 
 	 * @see com.hbt.semillero.ejb.IGestionarComicLocal#eliminarComic(java.lang.Long)
 	 */
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void eliminarComic(Long idComic) {
 
-		Comic comicEliminar = em.find(Comic.class, idComic);
+		Comic comicEliminar = em.find(Comic.class,idComic);
 		if(comicEliminar!=null){
 			em.remove(comicEliminar);
 			return;	
@@ -118,7 +141,7 @@ public class GestionarComicBean implements IGestionarComicLocal {
 	 */
 	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
 	public ComicDTO consultarComic(String idComic) {
-		Comic comic = em.find(Comic.class, idComic);
+		Comic comic = em.find(Comic.class,Long.parseLong(idComic));
 		ComicDTO comicDTO  = convertirComicToComicDTO(comic);
 		return comicDTO;
 
@@ -131,12 +154,17 @@ public class GestionarComicBean implements IGestionarComicLocal {
 	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
 	//todo esta lista de resultados sea nula y ver que pasa con el resultdo
 	public List<ComicDTO> consultarComics() {
+
 		List<ComicDTO> resultadosComicDTO= new ArrayList<>();
 		List<Comic> resultados = em.createQuery("SELECT C FROM COMIC C").getResultList();
-		for(Comic comic : resultados){
-			resultadosComicDTO.add(convertirComicToComicDTO(comic));
+		if(resultados.size()!=0){
+			for(Comic comic : resultados){
+				resultadosComicDTO.add(convertirComicToComicDTO(comic));
+			}
+			return resultadosComicDTO;
 		}
-		return resultadosComicDTO;
+		return null;
+
 	}
 
 	/**

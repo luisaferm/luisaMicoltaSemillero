@@ -24,7 +24,7 @@ import com.hbt.semillero.pojo.GestionarComicPOJO;
 public class GestionarComicPOJOTest {
 
 
-	@Test
+	@Test(enabled = false)
 	public void crearComicDTOTest() {
 		GestionarComicPOJO gestionarComicPOJO = new GestionarComicPOJO();
 		gestionarComicPOJO.crearComicDTO();
@@ -42,7 +42,7 @@ public class GestionarComicPOJOTest {
 	 * @author Family
 	 *
 	 */
-	@Test
+	@Test(enabled = false)
 	public void crearComicDTOTest2() {
 
 
@@ -86,7 +86,7 @@ public class GestionarComicPOJOTest {
 	 * @author Family
 	 *
 	 */
-	@Test
+	@Test(enabled = false)
 	public void modificarComicDTOTest(){
 		
 		GestionarComicPOJO gestionarComicPOJO= new GestionarComicPOJO();	
@@ -136,7 +136,7 @@ public class GestionarComicPOJOTest {
 	 * @author Family
 	 *
 	 */
-	@Test
+	@Test(enabled = false)
 	public void eliminarComicDTOTest(){
 		
 		GestionarComicPOJO gestionarComicPOJO= new GestionarComicPOJO();	
