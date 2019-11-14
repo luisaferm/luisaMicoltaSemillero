@@ -1,66 +1,103 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ComicDTO } from '../../dto/comic.dto';
 
 /**
- * @description La clase CrearPersonaComponent  permite crear persona
- * @author Luisa Micolta Espitia <luisafer.micolta@gmail.com>
+ * @description La clase CrearPersonaComponent permite crear personas
+ * @author Diego Fernando Alvarez Silva <dalvarez@heinsohn.com.co>
  */
-
 @Component({
-  selector: 'crear-persona',
-  templateUrl: './crear-persona-component.html',
-  styleUrls: ['./crear-persona-component.css']
+    selector: 'crear-persona',
+    templateUrl: './crear-persona-component.html'
 })
+export class CrearPersonaComponent implements OnInit{
+    
+    private nombreInstructorGlobalPrivado : string;
+    public nombreInstructorGlobalPublic : string;
+
+    public listaApellidos : Array<any> = new Array<any>();
+    public listaNombres = null;
+
+    public comicDTO : ComicDTO;
+
+    ngOnInit() : void {
+        this.nombreInstructorGlobalPrivado = "Semillero2019";
+        this.inicializarComponente();
 
 
-export class CrearPersonaComponent {
-  private varibleGlobal: string;
-  /**public miVariable : any [];  ----  De esta forma miVariable se esta declarando de forma Global */
-  public listaApellidos: Array<any> = new Array<any>(); /** <string> <ComicDTO> */
-  public listaNombres = []; // tamien se puede inicializar con [] 
-
-  ngOninit(): void {
+        let nombreInstructor = "Diego Alvarez";
+        let nombreInstructorString : string = "Diego Alvarez string";
+        console.log("nombreInstructor: " + nombreInstructor);
+        console.log("nombreInstructorString: " + nombreInstructorString);
 
 
-    let nombreVariableLocal = "Luisa Fernanda";
-    let apellidoVariableLocal: string = "Micolta Espitia";
-    console.log(nombreVariableLocal);
-    console.log(apellidoVariableLocal);
+        let miVarible : any = {
+            id : 1,
+            nombre : "Carlos",
+            direccion : "Carrera 21 XXX",
+            colores : [1,2,3,4,5]
+        };
+        miVarible.genero = "Masculino";
+        delete miVarible.genero;
 
-    let miVariable: any = { /** De esta forma miVariable se esta declarando de forma Local*/
-      id: 1,
-      nombre: "Carlos",
-      direccion: "Carrera 21",
-      colores: [1, 2, 3, 4, 5]
+        this.listaApellidos.push(miVarible);
+        
 
-    };
-    miVariable.genero = " Masculino ";
-    this.listaApellidos.push(miVariable);
-    alert("Longitud de la lista:" + this.listaApellidos.length);
-    alert("Longitud de la lista:" + this.listaNombres.length);
+        
+        //alert("Longitud de la lista:" + this.listaNombres.length);
 
-    let variableNumero: number = 100.23; /** El tipo number permite numeros enteros y decimales*/
-    let variableString: string = "semillero";
-    let mivariableBolean : boolean = true;
-  }
+        let miVariable : number = 100.23;
+        let variableString : string  = 'semillero2019';
 
+        let miVariableBoolean : boolean = true;
 
-  
+        let miMapa : Map<string,string>;
+        miMapa = new Map<string,string>();
+        
+        miMapa.set("1", "semillero");
+        miMapa.get("1");
+        let mifecha = new Date();
+        
+        console.log(mifecha);
 
-  publicinicializarComponente() : Array < string > {
-    let retorno: any;
-    let objeto=undefined;
-    if(objeto!== null && objeto !== undefined) {
-    alert("No es nulo")
-  } else {
-    alert("Si es nulo");
-  }
+        let lista = this.listaApellidos;
+        for (let i = 0; i < lista.length; i++) {
+            const element = lista[i];
+            console.log(element);
+            
+        }
 
-  //console.log(1 == 1); true
-  //console.log("1" == 1); true cuanfo se pine 2 iguales solo valida el valor
-  //console.log(1 === 1); true
-  //console.log("1" === 1); false "===" aca valida si es igual tanto el tipo como el valor 
-  return retorno;
-}
+        lista.forEach(element => {
+            console.log(element);
+        });
 
+        lista.map(objeto => {
+            console.log(objeto);
+        });
 
+        
+
+    }
+
+    public inicializarComponente() : Array<string> {
+        let retorno : any;
+        let objeto = undefined;
+        if(objeto !== null && objeto !== undefined ){
+            console.log("No es nulo");
+        } else {
+            console.log("Si es nulo");
+        }
+
+        console.log(1 == 1);
+//        console.log("1" == 1);
+        console.log(1 === 1);
+  //      console.log("1" === 1);
+
+        this.comicDTO = new ComicDTO();
+        this.comicDTO.autores = "Pablito";
+        this.comicDTO.fechaVenta = new Date();
+        console.log(this.comicDTO.autores);
+        
+        
+        return retorno;
+    }
 }
