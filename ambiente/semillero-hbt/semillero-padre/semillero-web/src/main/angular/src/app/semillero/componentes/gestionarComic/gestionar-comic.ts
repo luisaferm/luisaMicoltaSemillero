@@ -44,6 +44,7 @@ export class GestionarComicComponent implements OnInit {
     constructor(private fb: FormBuilder,
         private router: Router) {
         this.gestionarComicForm = this.fb.group({
+            id:[null],
             nombre: [null, Validators.required],
             editorial: [null],
             tematica: [null],
@@ -80,8 +81,8 @@ export class GestionarComicComponent implements OnInit {
         let actulizar: Boolean = this.gestionarComicForm.controls.editar.value;
         let index: number = this.gestionarComicForm.controls.index.value;
 
-
         this.comic = new ComicDTO();
+
         this.comic.nombre = this.gestionarComicForm.controls.nombre.value;
         this.comic.editorial = this.gestionarComicForm.controls.editorial.value;
         this.comic.tematica = this.gestionarComicForm.controls.tematica.value;
