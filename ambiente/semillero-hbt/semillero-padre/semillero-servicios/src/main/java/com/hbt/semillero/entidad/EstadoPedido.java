@@ -1,7 +1,7 @@
 /**
- * EstadoEnum.java
+ * EstadoPedido.java
  */
-package com.hbt.semillero.entidades;
+package com.hbt.semillero.entidad;
 
 /**
  * <b>Descripción:<b> Clase que determina
@@ -9,20 +9,23 @@ package com.hbt.semillero.entidades;
  * @author Family
  * @version 
  */
-public enum EstadoEnum {
-	ACTIVO("enum.estado.activo"),
-	INACTIVO("enum.estado.inactivo");
-	
-	private String codigoMensaje;
+public enum EstadoPedido {
+	SOLICITADO("enum.estadopedido.solicitado"), 
+	PENDIENTE("enum.estadopedido.pendiente"),
+	ENTREGADO("enum.estadopedido.entregado");
+
+
+
 
 	/**
-	 * Constructor de la clase.
-	 * @param codigoMensaje
+	 * Atributo que contiene la clave del mensaje para la internacionalizacion
 	 */
-	private EstadoEnum(String codigoMensaje) {
+	private String codigoMensaje;
+
+
+	EstadoPedido(String codigoMensaje) {
 		this.codigoMensaje = codigoMensaje;
 	}
-
 	/**
 	 * Metodo encargado de retornar el valor del atributo codigoMensaje
 	 * @return El codigoMensaje asociado a la clase
@@ -37,9 +40,8 @@ public enum EstadoEnum {
 	 */
 	public void setCodigoMensaje(String codigoMensaje) {
 		this.codigoMensaje = codigoMensaje;
-		
 	}
-	
-	
+
+
 
 }

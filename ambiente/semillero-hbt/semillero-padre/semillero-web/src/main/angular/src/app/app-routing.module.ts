@@ -4,12 +4,10 @@ import { GestionarComicComponent } from './semillero/componentes/gestionarComic/
 import { BienvenidaComponent } from './semillero/componentes/home/bienvenida-component';
 import { ConsultarComicComponent } from './semillero/componentes/gestionarComic/consultarComic/consultar-comic';
 
-
 const routes: Routes = [
   { path: 'gestionar-comic', component: GestionarComicComponent },
   { path: 'bienvenida', component: BienvenidaComponent, data : null },
   { path: 'consultar-comic', component: ConsultarComicComponent, data : null}
-  
 ];
 
 @NgModule({

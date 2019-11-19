@@ -1,8 +1,7 @@
 /**
  * Comic.java
  */
-package com.hbt.semillero.entidades;
-
+package com.hbt.semillero.entidad;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -19,10 +18,10 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
- * * <b>Descripción:<b> Clase que determina la entidad que permite representar la
+ * <b>Descripción:<b> Clase que determina la entidad que permite representar la
  * tabla "DB_SEMILLERO"."COMIC"
- *
- * @author Family
+ * 
+ * @author ccastano
  * @version
  */
 @Entity
@@ -288,6 +287,7 @@ public class Comic implements Serializable {
 	public void setCantidad(Long cantidad) {
 		this.cantidad = cantidad;
 	}
+	
 
 	/**
 	 * @see java.lang.Object#toString() Metodo que permite asociar al objeto un

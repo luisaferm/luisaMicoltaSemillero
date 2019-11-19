@@ -4,7 +4,7 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/"/>
         <property name="context-root" value="semillero-servicios"/>
-        <property name="component.exclusion.patterns" value="WEB-INF/lib/*.jar"/>
         <property name="java-output-path" value="/semillero-servicios/target/classes"/>
+        <property name="component.exclusion.patterns" value="WEB-INF/lib/*.jar"/>
     </wb-module>
 </project-modules>
