@@ -3,6 +3,9 @@
  */
 package com.hbt.semillero.ejb;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.ejb.Stateless;
 
 
@@ -79,6 +82,17 @@ public class GestionarPedidoBean {
 			facturaModificar.setEstado(EstadoPedido.PENDIENTE);
 			em.merge(facturaModificar);
 		}
+	}
+	
+
+	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+	public List<FacturaDTO> consultarFacturas() {
+		List<FacturaDTO> resultadosFacturaDTO = new ArrayList<FacturaDTO>();
+		List<Factura> resultados = em.createQuery("select c from TC_FACTURA c").getResultList();
+		for (Factura factura:resultados) {
+			resultadosFacturaDTO.add(convertirFacturaToFacturaDTO(factura));
+		}
+		return resultadosFacturaDTO;
 	}
 
 	/**

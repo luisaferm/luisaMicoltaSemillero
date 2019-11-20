@@ -81,7 +81,7 @@ public class Factura implements Serializable {
 	public double getTotal() {
 
 
-		//total= detalle.subtotal();
+		total= calcularTotal();
 
 		return total;
 	}
@@ -90,6 +90,7 @@ public class Factura implements Serializable {
 	 * Metodo encargado de retornar el valor del atributo proveedor
 	 * @return El proveedor asociado a la clase
 	 */
+	@Column(name = "SFPROVEEDOR")
 	public Proveedor getProveedor() {
 		return proveedor;
 	}
@@ -129,6 +130,7 @@ public class Factura implements Serializable {
 	 * Metodo encargado de retornar el valor del atributo Cliente
 	 * @return El cliente asociado a la clase
 	 */
+	@Column(name = "SFCLIENTE")
 	public Persona getCliente() {
 		return Cliente;
 	}

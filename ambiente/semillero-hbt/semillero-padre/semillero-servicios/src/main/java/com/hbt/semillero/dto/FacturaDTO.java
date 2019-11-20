@@ -41,8 +41,6 @@ public class FacturaDTO {
 	}
 
 	
-
-
 	/**
 	 * Constructor de la clase.
 	 * @param id

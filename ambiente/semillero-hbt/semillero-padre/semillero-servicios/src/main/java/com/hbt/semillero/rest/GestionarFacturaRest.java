@@ -18,11 +18,12 @@ import com.hbt.semillero.dto.ResultadoDTO;
 import com.hbt.semillero.ejb.GestionarPedidoBean;
 
 /**
- * <b>Descripción:<b> Clase que determina
+ * <b>Descripción:<b>  Clase que determina el servicio rest que permite gestionar
  * <b>Caso de Uso:<b> 
  * @author Family
  * @version 
  */
+@Path("/GestionarFactura")
 public class GestionarFacturaRest {
 
 	private GestionarPedidoBean gestionarPedidoBean;
@@ -38,6 +39,21 @@ public class GestionarFacturaRest {
 		
 		ResultadoDTO resultadoDTO = new ResultadoDTO(Boolean.TRUE, "Factura creada exitosamente");
 		return resultadoDTO;
+
+	}
+	/**
+	 * 
+	 * Metodo encargado de traer la informacion de un comic determiando
+	 * http://localhost:8085/semillero-servicios/rest/GestionarFacturaRest/consultarFacturas
+	 * 
+	 * @param idComic
+	 * @return
+	 */
+	@GET
+	@Path("/consultarFacturas")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<FacturaDTO> consultarFacturas() {
+		return gestionarPedidoBean.consultarFacturas();
 
 	}
 }
