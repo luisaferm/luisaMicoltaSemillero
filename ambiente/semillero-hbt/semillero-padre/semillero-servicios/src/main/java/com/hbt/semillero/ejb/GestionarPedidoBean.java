@@ -5,6 +5,7 @@ package com.hbt.semillero.ejb;
 
 import javax.ejb.Stateless;
 
+
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.ejb.TransactionManagement;
@@ -16,8 +17,9 @@ import com.hbt.semillero.dto.ComicDTO;
 
 import com.hbt.semillero.dto.FacturaDTO;
 import com.hbt.semillero.entidad.Comic;
+import com.hbt.semillero.entidad.EstadoPedido;
 import com.hbt.semillero.entidad.Factura;
-import com.hbt.semillero.entidad.Factura_Detalle;
+
 
 /**
  * <b>Descripción:<b> Clase que determina
@@ -37,13 +39,14 @@ public class GestionarPedidoBean {
 	public void crearFactura(FacturaDTO facturaDTO) {
 		// Entidad nueva
 		// Se almacena la informacion y se maneja la enidad Factura
-		
-		Factura factura = convertirFacturaDTOToFactura(facturaDTO);
-		em.persist(factura);
-		
+		if(realizarPedido()==true){
+			Factura factura = convertirFacturaDTOToFactura(facturaDTO);
+			em.persist(factura);
 
+		}
 	}
 
+	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public void ModificarFactura(Long idfactura, Long cantComics, String nomProveedor, FacturaDTO facturaDTO) {
 		Factura facturaModificar ;
 		if(facturaDTO==null) {
@@ -55,6 +58,27 @@ public class GestionarPedidoBean {
 		//facturaModificar.;
 		//em.merge(comicModificar);
 
+	}
+	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
+	public void cambiarEstadoFactura(Long idfactura, FacturaDTO facturaDTO) {
+		Factura facturaModificar ;
+
+		if(facturaDTO==null) {
+			// Entidad a modificar
+			facturaModificar = em.find(Factura.class, idfactura);
+		}else {
+			facturaModificar = convertirFacturaDTOToFactura(facturaDTO);
+		}
+
+		if(realizarPedido()==true){
+			facturaModificar.setEstado(EstadoPedido.SOLICITADO);
+			em.merge(facturaModificar);
+		}
+
+		else{
+			facturaModificar.setEstado(EstadoPedido.PENDIENTE);
+			em.merge(facturaModificar);
+		}
 	}
 
 	/**
@@ -69,7 +93,7 @@ public class GestionarPedidoBean {
 		if(factura.getId()!=null) {
 			facturaDTO.setId(factura.getId());
 		}
-		facturaDTO.setTipo((factura.getTipo()));
+		
 		//facturaDTO.setEstado(factura.getEstado());
 		return facturaDTO;
 	}
@@ -94,6 +118,31 @@ public class GestionarPedidoBean {
 		return factura;
 	}
 
+	/**
+	 * 
+	 * Metodo encargado de validar si se puede hacer el pedido
+	 * <b>Caso de Uso</b>
+	 * @author Family
+	 * 
+	 * @return
+	 */
+
+	public boolean realizarPedido() {
+		try{
+
+			Factura factura = new Factura();
+
+			if(factura.calcularTotal()<250000.0)
+				return true;
+		}
+		catch(Exception e) {
+			System.out.println("No se puede realizar pedido porque excede los 250000"+e.getMessage());
+		}
+
+		return false;
+	}
+
+	
 
 
 }

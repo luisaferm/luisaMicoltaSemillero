@@ -15,6 +15,7 @@ import javax.ws.rs.core.MediaType;
 import com.hbt.semillero.dto.ComicDTO;
 import com.hbt.semillero.dto.FacturaDTO;
 import com.hbt.semillero.dto.ResultadoDTO;
+import com.hbt.semillero.ejb.GestionarPedidoBean;
 
 /**
  * <b>Descripción:<b> Clase que determina
@@ -24,6 +25,7 @@ import com.hbt.semillero.dto.ResultadoDTO;
  */
 public class GestionarFacturaRest {
 
+	private GestionarPedidoBean gestionarPedidoBean;
 
 
 
@@ -31,9 +33,10 @@ public class GestionarFacturaRest {
 	@Path("/crearFactura")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public ResultadoDTO crearComic(FacturaDTO facturaDTO) {
-		//
-		ResultadoDTO resultadoDTO = new ResultadoDTO(Boolean.TRUE, "Comic creado exitosamente");
+	public ResultadoDTO crearFactura(FacturaDTO facturaDTO) {
+		gestionarPedidoBean.crearFactura(facturaDTO);
+		
+		ResultadoDTO resultadoDTO = new ResultadoDTO(Boolean.TRUE, "Factura creada exitosamente");
 		return resultadoDTO;
 
 	}

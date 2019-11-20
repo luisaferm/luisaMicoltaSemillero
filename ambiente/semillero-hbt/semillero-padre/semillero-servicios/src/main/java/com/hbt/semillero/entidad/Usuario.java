@@ -67,8 +67,8 @@ public class Usuario implements Serializable {
 	 * @return El id asociado a la clase
 	 */
 	@Id
-	@SequenceGenerator(allocationSize = 1, name = "TC_USUARIO_SCID_GENERATOR", sequenceName = "SEQ_COMIC")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TC_USUARIO_SCID_GENERATOR")
+	@SequenceGenerator(allocationSize = 1, name = "TC_USUARIO_SUID_GENERATOR", sequenceName = "SEQ_USUARIO")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TC_USUARIO_SUID_GENERATOR")
 	@Column(name = "SUID")
 	public Long getId() {
 		return id;

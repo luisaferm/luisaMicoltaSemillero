@@ -5,7 +5,13 @@ package com.hbt.semillero.dto;
 
 import java.math.BigDecimal;
 
+import com.hbt.semillero.entidad.Comic;
 import com.hbt.semillero.entidad.EstadoEnum;
+import com.hbt.semillero.entidad.EstadoPedido;
+import com.hbt.semillero.entidad.Factura;
+import com.hbt.semillero.entidad.Persona;
+import com.hbt.semillero.entidad.Proveedor;
+import com.hbt.semillero.entidad.TipoEnum;
 
 
 /**
@@ -19,13 +25,11 @@ public class FacturaDTO {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
-	private BigDecimal iva;
-	private BigDecimal total;
-	private String tipo;
-	private EstadoEnum estado;
-	private Long cliente;
-
-
+	private double iva ;
+	private double total;
+	private TipoEnum tipo;
+	private EstadoPedido estado;
+	private Persona Cliente;
 
 
 	/**
@@ -36,6 +40,9 @@ public class FacturaDTO {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+
+
 	/**
 	 * Constructor de la clase.
 	 * @param id
@@ -45,31 +52,18 @@ public class FacturaDTO {
 	 * @param estado
 	 * @param cliente
 	 */
-	public FacturaDTO(Long id, BigDecimal iva, BigDecimal total, String tipo, EstadoEnum estado, Long cliente) {
+	public FacturaDTO(Long id, double iva, double total, TipoEnum tipo, EstadoPedido estado, Persona cliente) {
 		super();
 		this.id = id;
 		this.iva = iva;
 		this.total = total;
 		this.tipo = tipo;
 		this.estado = estado;
-		this.cliente = cliente;
+		Cliente = cliente;
 	}
 
-	/**
-	 * Metodo encargado de retornar el valor del atributo cliente
-	 * @return El cliente asociado a la clase
-	 */
-	public Long getCliente() {
-		return cliente;
-	}
 
-	/**
-	 * Metodo encargado de modificar el valor del atributo cliente
-	 * @param cliente El nuevo cliente a modificar.
-	 */
-	public void setCliente(Long cliente) {
-		this.cliente = cliente;
-	}
+
 
 	/**
 	 * Metodo encargado de retornar el valor del atributo id
@@ -79,6 +73,9 @@ public class FacturaDTO {
 		return id;
 	}
 
+
+
+
 	/**
 	 * Metodo encargado de modificar el valor del atributo id
 	 * @param id El nuevo id a modificar.
@@ -87,69 +84,118 @@ public class FacturaDTO {
 		this.id = id;
 	}
 
+
+
+
 	/**
 	 * Metodo encargado de retornar el valor del atributo iva
 	 * @return El iva asociado a la clase
 	 */
-	public BigDecimal getIva() {
+	public double getIva() {
 		return iva;
 	}
+
+
+
 
 	/**
 	 * Metodo encargado de modificar el valor del atributo iva
 	 * @param iva El nuevo iva a modificar.
 	 */
-	public void setIva(BigDecimal iva) {
+	public void setIva(double iva) {
 		this.iva = iva;
 	}
+
+
+
 
 	/**
 	 * Metodo encargado de retornar el valor del atributo total
 	 * @return El total asociado a la clase
 	 */
-	public BigDecimal getTotal() {
+	public double getTotal() {
 		return total;
 	}
+
+
+
 
 	/**
 	 * Metodo encargado de modificar el valor del atributo total
 	 * @param total El nuevo total a modificar.
 	 */
-	public void setTotal(BigDecimal total) {
+	public void setTotal(double total) {
 		this.total = total;
 	}
+
+
+
 
 	/**
 	 * Metodo encargado de retornar el valor del atributo tipo
 	 * @return El tipo asociado a la clase
 	 */
-	public String getTipo() {
+	public TipoEnum getTipo() {
 		return tipo;
 	}
+
+
+
 
 	/**
 	 * Metodo encargado de modificar el valor del atributo tipo
 	 * @param tipo El nuevo tipo a modificar.
 	 */
-	public void setTipo(String tipo) {
+	public void setTipo(TipoEnum tipo) {
 		this.tipo = tipo;
 	}
+
+
+
 
 	/**
 	 * Metodo encargado de retornar el valor del atributo estado
 	 * @return El estado asociado a la clase
 	 */
-	public EstadoEnum getEstado() {
+	public EstadoPedido getEstado() {
 		return estado;
 	}
+
+
+
 
 	/**
 	 * Metodo encargado de modificar el valor del atributo estado
 	 * @param estado El nuevo estado a modificar.
 	 */
-	public void setEstado(EstadoEnum estado) {
+	public void setEstado(EstadoPedido estado) {
 		this.estado = estado;
 	}
+
+
+
+
+	/**
+	 * Metodo encargado de retornar el valor del atributo Cliente
+	 * @return El cliente asociado a la clase
+	 */
+	public Persona getCliente() {
+		return Cliente;
+	}
+
+
+
+
+	/**
+	 * Metodo encargado de modificar el valor del atributo Cliente
+	 * @param cliente El nuevo cliente a modificar.
+	 */
+	public void setCliente(Persona cliente) {
+		Cliente = cliente;
+	}
+
+
+
 
 	public static FacturaDTO valueOf(String arg) {
 		return JsonUtils.valueOf(arg, FacturaDTO.class);
@@ -179,10 +225,10 @@ public class FacturaDTO {
 
 		private static final long serialVersionUID = 1L;
 		private Long id;
-		private Long idfactura;
-		private Long idcomic;
-		private Long Cantidad;
-		private BigDecimal preciounitario;
+		private Comic comic;
+		private Long cantidad;
+		private double preciounitario;
+		private Factura factura;
 
 
 
@@ -195,25 +241,27 @@ public class FacturaDTO {
 		}
 
 
-
 		/**
 		 * Constructor de la clase.
 		 * @param id
-		 * @param idfactura
-		 * @param idcomic
+		 * @param comic
 		 * @param cantidad
 		 * @param preciounitario
+		 * @param proveedor
+		 * @param factura
 		 */
-		public DetalleDTO(Long id, Long idfactura, Long idcomic, Long cantidad, BigDecimal preciounitario) {
+		public DetalleDTO(Long id, Comic comic, Long cantidad, double preciounitario,
+				Factura factura) {
 			super();
 			this.id = id;
-			this.idfactura = idfactura;
-			this.idcomic = idcomic;
-			Cantidad = cantidad;
-			this.preciounitario = preciounitario;
+			this.comic = comic;
+			this.cantidad = cantidad;
+			this.preciounitario = preciounitario;			
+			this.factura = factura;
 		}
 
 
+		
 
 		/**
 		 * Metodo encargado de retornar el valor del atributo id
@@ -236,61 +284,41 @@ public class FacturaDTO {
 
 
 		/**
-		 * Metodo encargado de retornar el valor del atributo idfactura
-		 * @return El idfactura asociado a la clase
+		 * Metodo encargado de retornar el valor del atributo comic
+		 * @return El comic asociado a la clase
 		 */
-		public Long getIdfactura() {
-			return idfactura;
+		public Comic getComic() {
+			return comic;
 		}
 
 
 
 		/**
-		 * Metodo encargado de modificar el valor del atributo idfactura
-		 * @param idfactura El nuevo idfactura a modificar.
+		 * Metodo encargado de modificar el valor del atributo comic
+		 * @param comic El nuevo comic a modificar.
 		 */
-		public void setIdfactura(Long idfactura) {
-			this.idfactura = idfactura;
+		public void setComic(Comic comic) {
+			this.comic = comic;
 		}
 
 
 
 		/**
-		 * Metodo encargado de retornar el valor del atributo idcomic
-		 * @return El idcomic asociado a la clase
-		 */
-		public Long getIdcomic() {
-			return idcomic;
-		}
-
-
-
-		/**
-		 * Metodo encargado de modificar el valor del atributo idcomic
-		 * @param idcomic El nuevo idcomic a modificar.
-		 */
-		public void setIdcomic(Long idcomic) {
-			this.idcomic = idcomic;
-		}
-
-
-
-		/**
-		 * Metodo encargado de retornar el valor del atributo Cantidad
+		 * Metodo encargado de retornar el valor del atributo cantidad
 		 * @return El cantidad asociado a la clase
 		 */
 		public Long getCantidad() {
-			return Cantidad;
+			return cantidad;
 		}
 
 
 
 		/**
-		 * Metodo encargado de modificar el valor del atributo Cantidad
+		 * Metodo encargado de modificar el valor del atributo cantidad
 		 * @param cantidad El nuevo cantidad a modificar.
 		 */
 		public void setCantidad(Long cantidad) {
-			Cantidad = cantidad;
+			this.cantidad = cantidad;
 		}
 
 
@@ -299,7 +327,7 @@ public class FacturaDTO {
 		 * Metodo encargado de retornar el valor del atributo preciounitario
 		 * @return El preciounitario asociado a la clase
 		 */
-		public BigDecimal getPreciounitario() {
+		public double getPreciounitario() {
 			return preciounitario;
 		}
 
@@ -309,9 +337,32 @@ public class FacturaDTO {
 		 * Metodo encargado de modificar el valor del atributo preciounitario
 		 * @param preciounitario El nuevo preciounitario a modificar.
 		 */
-		public void setPreciounitario(BigDecimal preciounitario) {
+		public void setPreciounitario(double preciounitario) {
 			this.preciounitario = preciounitario;
 		}
+
+
+
+		/**
+		 * Metodo encargado de retornar el valor del atributo factura
+		 * @return El factura asociado a la clase
+		 */
+		public Factura getFactura() {
+			return factura;
+		}
+
+
+
+		/**
+		 * Metodo encargado de modificar el valor del atributo factura
+		 * @param factura El nuevo factura a modificar.
+		 */
+		public void setFactura(Factura factura) {
+			this.factura = factura;
+		}
+
+
+
 
 	}
 
