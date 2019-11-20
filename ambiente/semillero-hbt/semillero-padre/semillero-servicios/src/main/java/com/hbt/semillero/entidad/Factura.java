@@ -19,7 +19,7 @@ import javax.persistence.Table;
 import javax.xml.ws.FaultAction;
 
 /**
- * <b>Descripción:<b> Clase que determina
+ * <b>Descripción:<b> Clase entidad de Factura
  * <b>Caso de Uso:<b> 
  * @author Family
  * @version 
@@ -211,7 +211,17 @@ public class Factura implements Serializable {
 		this.estado = estado;
 	}
 
-
+/**
+ * 
+ * 
+ * Metodo encargado de agregar el detalle en arreglo 
+ * <b>Caso de Uso</b>
+ * @author Family
+ * 
+ * @param comic
+ * @param cant
+ * @param precio
+ */
 	public void agregarDetalle( Comic comic, long cant, double precio){
 
 		Factura_Detalle detalle = new Factura_Detalle();
@@ -224,6 +234,14 @@ public class Factura implements Serializable {
 
 	}
 
+	/**
+	 * 
+	 * Metodo encargado de calcular el total de Factura
+	 * <b>Caso de Uso</b>
+	 * @author Family
+	 * 
+	 * @return
+	 */
 
 	public double calcularTotal() {
 
@@ -244,7 +262,7 @@ public class Factura implements Serializable {
 
 
 	/**
-	 * <b>Descripción:<b> Clase que determina
+	 * <b>Descripción:<b> Clase que describe el Detalle de Factura
 	 * <b>Caso de Uso:<b> 
 	 * @author Family
 	 * @version 
