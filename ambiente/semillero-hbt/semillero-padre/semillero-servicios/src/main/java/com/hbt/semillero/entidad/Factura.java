@@ -386,7 +386,14 @@ public class Factura implements Serializable {
 		}
 
 
-
+/**
+ * 
+ * Metodo encargado de cslcular el subtotal restandole el porcentaje del IVA
+ * <b>Caso de Uso</b>
+ * @author Family
+ * 
+ * @return
+ */
 
 		public double calcularSubtotal(){
 			try{
